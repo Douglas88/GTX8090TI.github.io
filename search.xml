@@ -31,6 +31,19 @@
     
     
     <entry>
+      <title>cs  cobaltstrike DNS 上线</title>
+      <link href="2021/04/09/cs-cobaltstrike-DNS-%E4%B8%8A%E7%BA%BF/"/>
+      <url>2021/04/09/cs-cobaltstrike-DNS-%E4%B8%8A%E7%BA%BF/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h1><h2 id="域名只要支持-NS-记录在哪获取都行-我这里以godaddy-购买的域名操作"><a href="#域名只要支持-NS-记录在哪获取都行-我这里以godaddy-购买的域名操作" class="headerlink" title="域名只要支持 NS 记录在哪获取都行 我这里以godaddy 购买的域名操作"></a>域名只要支持 NS 记录在哪获取都行 我这里以godaddy 购买的域名操作</h2><h3 id="添加一条-A-记录：名称自定义指向你的服务器ip"><a href="#添加一条-A-记录：名称自定义指向你的服务器ip" class="headerlink" title="添加一条 A 记录：名称自定义指向你的服务器ip"></a>添加一条 A 记录：名称自定义指向你的服务器ip</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/111.webp" alt="image"></p><h3 id="添加2条或者3条ns记录：名称自定义指向你添加的A记录名称加域名-vps-xxxxx-xyz"><a href="#添加2条或者3条ns记录：名称自定义指向你添加的A记录名称加域名-vps-xxxxx-xyz" class="headerlink" title="添加2条或者3条ns记录：名称自定义指向你添加的A记录名称加域名 vps.xxxxx.xyz"></a>添加2条或者3条ns记录：名称自定义指向你添加的A记录名称加域名 vps.xxxxx.xyz</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/222.webp" alt="image"></p><h3 id="测试域名记录是否生效："><a href="#测试域名记录是否生效：" class="headerlink" title="测试域名记录是否生效："></a>测试域名记录是否生效：</h3><h4 id="在服务器使用tcpdump-查看53端口流量"><a href="#在服务器使用tcpdump-查看53端口流量" class="headerlink" title="在服务器使用tcpdump  查看53端口流量"></a>在服务器使用tcpdump  查看53端口流量</h4><pre><code>tcpdump -n -i eth0 udp dst port 53nslookup ns3.xxxx.xyz  查看服务器是否有响应</code></pre><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/333.webp" alt="image"></p><h1 id="Cs配置监听器"><a href="#Cs配置监听器" class="headerlink" title="Cs配置监听器"></a>Cs配置监听器</h1><h3 id="新建DNS-监听器"><a href="#新建DNS-监听器" class="headerlink" title="新建DNS 监听器"></a>新建DNS 监听器</h3><p>名字随意</p><p>Payload 选择Beacon DNS</p><p>Options 如下图填入  注意ns1.xxxx.xyz  不是ns1.vps.xxx.xyz<br><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/444.webp" alt="image"></p><p>NDS Host (Stager): 填入Options 中任意一条 点击 Save 保存<br><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/555.webp" alt="image"><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/666.webp" alt="image"></p><h1 id="上线测试："><a href="#上线测试：" class="headerlink" title="上线测试："></a>上线测试：</h1><h3 id="生成无状态exe"><a href="#生成无状态exe" class="headerlink" title="生成无状态exe"></a>生成无状态exe</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/777.webp" alt="image"></p><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/888.webp" alt="image"></p><p>正常运行后会上线一台主机但是呈现黑色<br><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/999.webp" alt="image"></p><p>进入beacon 执行</p><pre><code>checkin     主动连接发布数据mode dns-txt    使用DNS TXT作为数据通道</code></pre><p>执行以上两条命令后骚等片刻即可成功上线<br><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/1010.webp" alt="image"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CVE-2021-21972  Vmware vCenter 任意文件上传</title>
       <link href="2021/02/25/CVE-2021-21972-Vmware-vCenter-%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
       <url>2021/02/25/CVE-2021-21972-Vmware-vCenter-%E4%BB%BB%E6%84%8F%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
