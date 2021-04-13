@@ -11,4 +11,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
+Sitemap: https://ailiqun.xyz/sitemap.xml
 Sitemap: https://ailiqun.xyz/baidusitemap.xml
